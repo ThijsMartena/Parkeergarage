@@ -1,9 +1,9 @@
-package Parkeersimulator;
+package ParkeerSimulator;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class CarQueue {
-    private Queue<Car> queue = new LinkedList<>();
+    private Queue<ParkeerSimulator.Car> queue = new LinkedList<>();
 
     public boolean addCar(Car car) {
         return queue.add(car);

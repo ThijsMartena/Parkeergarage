@@ -1,4 +1,4 @@
-package Parkeersimulator;
+package ParkeerSimulator;
 
 import java.util.Random;
 
@@ -34,7 +34,8 @@ public class Simulator {
         entrancePassQueue = new CarQueue();
         paymentCarQueue = new CarQueue();
         exitCarQueue = new CarQueue();
-        simulatorView = new SimulatorView(3, 6, 30);
+        simulatorView = new SimulatorView(3, 6, 30, this);
+        run();
     }
 
     public void run() {
@@ -44,8 +45,7 @@ public class Simulator {
     }
 
     public static void main(String [ ] args){
-        Simulator sim = new Simulator();
-        sim.run();
+     new Simulator();
     }
 
     private void tick() {
