@@ -1,4 +1,4 @@
-package Parkeersimulator;
+package ParkeerSimulator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,8 +10,9 @@ public class SimulatorView extends JFrame {
     private int numberOfPlaces;
     private int numberOfOpenSpots;
     private Car[][][] cars;
+    private GUI GUIc;
 
-    public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces) {
+    public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces, Simulator main) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfRows = numberOfRows;
         this.numberOfPlaces = numberOfPlaces;
@@ -19,9 +20,13 @@ public class SimulatorView extends JFrame {
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
         
         carParkView = new CarParkView();
+        GUIc = new GUI(main);
 
         Container contentPane = getContentPane();
-        contentPane.add(carParkView, BorderLayout.CENTER);
+        contentPane.add(GUIc, BorderLayout.PAGE_START);
+        contentPane.add(carParkView, BorderLayout.PAGE_END);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         pack();
         setVisible(true);
 
@@ -206,5 +211,45 @@ public class SimulatorView extends JFrame {
                     10 - 1); // TODO use dynamic size or constants
         }
     }
+    private class GUI extends JPanel {
+        Simulator main;
+        Font fnt = new Font("Arial", 1, 30);
 
+
+        private String functie() {
+            return "yo";
+        }
+
+        /**
+         * Constructor for objects of class CarPark
+         */
+        public GUI(Simulator main) {
+            this.main = main;
+            setPreferredSize(new Dimension(800,500));
+        }
+    String doos = "Hey";
+
+        /**
+         * Overriden. The GUI view component needs to be redisplayed. Copy the
+         * internal image to screen.
+         */
+        public void paintComponent(Graphics g) {
+            Graphics2D c = (Graphics2D) g;
+            //Add data
+            // g.setFont(fnt);
+           // g.setColor(Color.red);
+           // g.fillOval(100, 100, 200, 200);
+           // g.setColor(Color.black);
+           // g.drawString("Yo", 50, 50);
+
+            c.setColor(new Color(255, 0 ,0));
+            g.drawRect(0,0,800,500);
+            g.drawString(functie(), 50 ,50);
+
+
+            //main.run();
+        }
+
+
+    }
 }
