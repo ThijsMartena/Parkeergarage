@@ -27,6 +27,15 @@ public class SimulatorView extends JFrame {
         contentPane.add(carParkView, BorderLayout.PAGE_END);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JPanel toolbar = new JPanel();
+        JButton buttonEen = new JButton("1");
+        toolbar.add(buttonEen);
+        contentPane.add(toolbar, BorderLayout.CENTER);
+
+        JButton buttonHonderd = new JButton("100");
+        toolbar.add(buttonHonderd);
+        contentPane.add(toolbar, BorderLayout.CENTER);
+
         pack();
         setVisible(true);
 
@@ -216,9 +225,6 @@ public class SimulatorView extends JFrame {
         Font fnt = new Font("Arial", 1, 30);
 
 
-        private String functie() {
-            return "yo";
-        }
 
         /**
          * Constructor for objects of class CarPark
@@ -227,7 +233,6 @@ public class SimulatorView extends JFrame {
             this.main = main;
             setPreferredSize(new Dimension(800,500));
         }
-    String doos = "Hey";
 
         /**
          * Overriden. The GUI view component needs to be redisplayed. Copy the
@@ -242,9 +247,10 @@ public class SimulatorView extends JFrame {
            // g.setColor(Color.black);
            // g.drawString("Yo", 50, 50);
 
-            c.setColor(new Color(255, 0 ,0));
-            g.drawRect(0,0,800,500);
-            g.drawString(functie(), 50 ,50);
+
+            //c.setColor(new Color(255, 0 ,0));
+            //g.drawRect(0,0,800,500);
+            //g.drawString(functie(), 50 ,50);
 
 
             //main.run();
