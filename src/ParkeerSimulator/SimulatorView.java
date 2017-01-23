@@ -28,6 +28,11 @@ public class SimulatorView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel toolbar = new JPanel();
+        JButton start = new JButton("Start");
+        toolbar.add(start);
+        contentPane.add(toolbar, BorderLayout.CENTER);
+
+
         JButton buttonEen = new JButton("1");
         toolbar.add(buttonEen);
         contentPane.add(toolbar, BorderLayout.CENTER);
@@ -35,6 +40,8 @@ public class SimulatorView extends JFrame {
         JButton buttonHonderd = new JButton("100");
         toolbar.add(buttonHonderd);
         contentPane.add(toolbar, BorderLayout.CENTER);
+
+
 
         pack();
         setVisible(true);
@@ -222,8 +229,13 @@ public class SimulatorView extends JFrame {
     }
     private class GUI extends JPanel {
         Simulator main;
+
         Font fnt = new Font("Arial", 1, 30);
 
+
+        private String functie() {
+            return "Project Parkeergarage GUI";
+        }
 
 
         /**
@@ -241,16 +253,16 @@ public class SimulatorView extends JFrame {
         public void paintComponent(Graphics g) {
             Graphics2D c = (Graphics2D) g;
             //Add data
-            // g.setFont(fnt);
+             g.setFont(fnt);
            // g.setColor(Color.red);
            // g.fillOval(100, 100, 200, 200);
            // g.setColor(Color.black);
            // g.drawString("Yo", 50, 50);
 
 
-            //c.setColor(new Color(255, 0 ,0));
-            //g.drawRect(0,0,800,500);
-            //g.drawString(functie(), 50 ,50);
+            c.setColor(new Color(13, 0 ,0));
+            g.drawRect(0,0,800,500);
+            g.drawString(functie(), 50 ,50);
 
 
             //main.run();
