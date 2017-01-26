@@ -2,6 +2,7 @@ package ParkeerSimulator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class SimulatorView extends JFrame {
     private CarParkView carParkView;
@@ -41,7 +42,7 @@ public class SimulatorView extends JFrame {
         toolbar.add(buttonHonderd);
         contentPane.add(toolbar, BorderLayout.CENTER);
 
-
+        
 
         pack();
         setVisible(true);

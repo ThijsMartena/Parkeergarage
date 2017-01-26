@@ -3,7 +3,7 @@ package ParkeerSimulator;
 import java.awt.*;
 
 public abstract class Car {
-//THIJS MOOIII
+
     private Location location;
     private int minutesLeft;
     private boolean isPaying;

@@ -39,10 +39,11 @@ public class Simulator {
     }
 
     public void run() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             tick();
         }
     }
+
 
     public static void main(String [ ] args){
      new Simulator();
