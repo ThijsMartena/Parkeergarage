@@ -1,9 +1,11 @@
 package ParkeerSimulator;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.*;
+import javax.swing.JFrame;
 
-public class SimulatorView extends JFrame {
+public class SimulatorView  extends JFrame implements ActionListener  {
     private CarParkView carParkView;
     private int numberOfFloors;
     private int numberOfRows;
@@ -11,6 +13,10 @@ public class SimulatorView extends JFrame {
     private int numberOfOpenSpots;
     private Car[][][] cars;
     private GUI GUIc;
+    private JButton buttonHonderd = new JButton("100");
+    private JButton buttonEen = new JButton("1");
+    private Simulator main;
+
 
     public SimulatorView(int numberOfFloors, int numberOfRows, int numberOfPlaces, Simulator main) {
         this.numberOfFloors = numberOfFloors;
@@ -18,21 +24,20 @@ public class SimulatorView extends JFrame {
         this.numberOfPlaces = numberOfPlaces;
         this.numberOfOpenSpots =numberOfFloors*numberOfRows*numberOfPlaces;
         cars = new Car[numberOfFloors][numberOfRows][numberOfPlaces];
-        
+        this.main = main;
         carParkView = new CarParkView();
         GUIc = new GUI(main);
+
+        buttonEen.addActionListener(this);
+        buttonHonderd.addActionListener(this);
 
         Container contentPane = getContentPane();
         contentPane.add(GUIc, BorderLayout.PAGE_START);
         contentPane.add(carParkView, BorderLayout.PAGE_END);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         JPanel toolbar = new JPanel();
-        JButton buttonEen = new JButton("1");
         toolbar.add(buttonEen);
         contentPane.add(toolbar, BorderLayout.CENTER);
-
-        JButton buttonHonderd = new JButton("100");
         toolbar.add(buttonHonderd);
         contentPane.add(toolbar, BorderLayout.CENTER);
 
@@ -40,6 +45,18 @@ public class SimulatorView extends JFrame {
         setVisible(true);
 
         updateView();
+    }
+    public void actionPerformed(ActionEvent e){
+
+        System.out.println(e.getSource());
+        System.out.println(main);
+        if(e.getSource()==buttonEen){
+            main.tickFor(1);
+        }
+
+        if(e.getSource()==buttonHonderd){
+            main.tickFor(100);
+        }
     }
 
     public void updateView() {
@@ -149,6 +166,7 @@ public class SimulatorView extends JFrame {
         }
         return true;
     }
+
     
     private class CarParkView extends JPanel {
         
@@ -234,6 +252,7 @@ public class SimulatorView extends JFrame {
             setPreferredSize(new Dimension(800,500));
         }
 
+
         /**
          * Overriden. The GUI view component needs to be redisplayed. Copy the
          * internal image to screen.
@@ -255,6 +274,7 @@ public class SimulatorView extends JFrame {
 
             //main.run();
         }
+
 
 
     }

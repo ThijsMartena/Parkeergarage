@@ -1,13 +1,16 @@
 package ParkeerSimulator;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
+import javax.swing.*;
 
 public class Simulator {
 
 	private static final String AD_HOC = "1";
 	private static final String PASS = "2";
-	
-	
+
+
 	private CarQueue entranceCarQueue;
     private CarQueue entrancePassQueue;
     private CarQueue paymentCarQueue;
@@ -47,6 +50,16 @@ public class Simulator {
     public static void main(String [ ] args){
      new Simulator();
     }
+
+    public void tickFor(int aantal){
+
+        for(int i = 0 ; i < aantal ; i++)
+        {
+            tick();
+        }
+    }
+
+
 
     private void tick() {
     	advanceTime();
